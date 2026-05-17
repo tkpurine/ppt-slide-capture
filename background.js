@@ -75,18 +75,11 @@ async function downloadZip(prefix) {
     zip.file(`${prefix}_${num}.png`, base64, { base64: true });
   }
 
-  const blob = await zip.generateAsync({ type: 'blob' });
-  const url = URL.createObjectURL(blob);
-
-  chrome.downloads.onChanged.addListener(function onChanged(delta) {
-    if (delta.state && delta.state.current === 'complete') {
-      URL.revokeObjectURL(url);
-      chrome.downloads.onChanged.removeListener(onChanged);
-    }
-  });
+  const base64 = await zip.generateAsync({ type: 'base64' });
+  const dataUrl = `data:application/zip;base64,${base64}`;
 
   await chrome.downloads.download({
-    url,
+    url: dataUrl,
     filename: `${prefix}_${Date.now()}.zip`,
     saveAs: false,
   });
