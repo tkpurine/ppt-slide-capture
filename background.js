@@ -83,4 +83,7 @@ async function downloadZip(prefix) {
     filename: `${prefix}_${Date.now()}.zip`,
     saveAs: false,
   });
+
+  await chrome.storage.local.set({ slides: [], meta: [] });
+  chrome.action.setBadgeText({ text: '' });
 }

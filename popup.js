@@ -46,6 +46,11 @@ btnDownload.addEventListener('click', () => {
   const prefix = prefixEl.value.trim() || 'slide';
   chrome.runtime.sendMessage({ type: 'DOWNLOAD_ZIP', prefix }, () => {
     if (chrome.runtime.lastError) return;
+    thumbGrid.innerHTML = '';
+    thumbGrid.appendChild(emptyMsg);
+    emptyMsg.style.display = '';
+    countEl.textContent = '0';
+    btnDownload.disabled = true;
     showToast(chrome.i18n.getMessage('toastDownloaded'));
   });
 });
