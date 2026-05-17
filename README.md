@@ -1,6 +1,6 @@
 # PPT Slide Capture
 
-[English](#english) | [日本語](#日本語)
+[English](#english) | [日本語](#japanese)
 
 ---
 
@@ -50,7 +50,7 @@ MIT
 
 ---
 
-<a name="日本語"></a>
+<a name="japanese"></a>
 
 ショートカットキー一発でスライドをキャプチャし、まとめて ZIP ダウンロードできる Chrome 拡張機能です。
 SharePoint / Office Online の PowerPoint に最適化されています。
