@@ -5,10 +5,7 @@
   "cmdCapture": {
     "message": "現在のスライドを1枚キャプチャ"
   },
-  "headerSub": {
-    "message": "SharePoint / PowerPoint Online 対応"
-  },
-  "shortcutLabel": {
+"shortcutLabel": {
     "message": "⌨️ キャプチャ"
   },
   "shortcutOr": {

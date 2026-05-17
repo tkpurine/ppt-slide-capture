@@ -5,10 +5,7 @@
   "cmdCapture": {
     "message": "Capture current slide"
   },
-  "headerSub": {
-    "message": "SharePoint / PowerPoint Online"
-  },
-  "shortcutLabel": {
+"shortcutLabel": {
     "message": "⌨️ Capture"
   },
   "shortcutOr": {
