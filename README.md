@@ -1,6 +1,6 @@
 # PPT Slide Capture
 
-[English](#english) | [日本語](#japanese)
+[English](#english) | [Japanese](#japanese)
 
 ---
 
