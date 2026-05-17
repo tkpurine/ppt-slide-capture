@@ -2,7 +2,8 @@
   "manifest_version": 3,
   "name": "PPT Slide Capture",
   "version": "2.0.0",
-  "description": "ショートカットキーでスライドをキャプチャし、まとめてZIPダウンロード",
+  "description": "__MSG_extDescription__",
+  "default_locale": "en",
   "permissions": [
     "activeTab",
     "downloads",
@@ -29,7 +30,7 @@
       "suggested_key": {
         "default": "Alt+Shift+S"
       },
-      "description": "現在のスライドを1枚キャプチャ"
+      "description": "__MSG_cmdCapture__"
     }
   },
   "icons": {

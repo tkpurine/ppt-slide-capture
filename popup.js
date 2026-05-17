@@ -9,6 +9,14 @@ const btnClear   = document.getElementById('btnClear');
 const prefixEl   = document.getElementById('prefix');
 const toast      = document.getElementById('toast');
 
+// ── i18n ────────────────────────────────────
+document.querySelectorAll('[data-i18n]').forEach(el => {
+  el.textContent = chrome.i18n.getMessage(el.dataset.i18n);
+});
+document.querySelectorAll('[data-i18n-title]').forEach(el => {
+  el.title = chrome.i18n.getMessage(el.dataset.i18nTitle);
+});
+
 // ── 初期ロード ──────────────────────────────
 chrome.runtime.sendMessage({ type: 'GET_STATE' }, (resp) => {
   if (chrome.runtime.lastError) return;
@@ -21,7 +29,7 @@ chrome.runtime.onMessage.addListener((msg) => {
     addThumb(msg.thumb, msg.index);
     countEl.textContent = msg.index;
     btnDownload.disabled = false;
-    showToast(`✅ スライド ${msg.index} をキャプチャしました`);
+    showToast(chrome.i18n.getMessage('toastCaptured', String(msg.index)));
   }
 });
 
@@ -29,7 +37,7 @@ chrome.runtime.onMessage.addListener((msg) => {
 btnCapture.addEventListener('click', () => {
   chrome.runtime.sendMessage({ type: 'CAPTURE_NOW' }, () => {
     if (chrome.runtime.lastError) {
-      showToast('⚠️ キャプチャに失敗しました');
+      showToast(chrome.i18n.getMessage('toastCaptureFailed'));
     }
   });
 });
@@ -38,12 +46,12 @@ btnDownload.addEventListener('click', () => {
   const prefix = prefixEl.value.trim() || 'slide';
   chrome.runtime.sendMessage({ type: 'DOWNLOAD_ZIP', prefix }, () => {
     if (chrome.runtime.lastError) return;
-    showToast('💾 ZIPをダウンロードしました');
+    showToast(chrome.i18n.getMessage('toastDownloaded'));
   });
 });
 
 btnClear.addEventListener('click', () => {
-  if (!confirm('キャプチャをすべてリセットしますか？')) return;
+  if (!confirm(chrome.i18n.getMessage('confirmReset'))) return;
   chrome.runtime.sendMessage({ type: 'CLEAR' }, () => {
     if (chrome.runtime.lastError) return;
     thumbGrid.innerHTML = '';
@@ -51,7 +59,7 @@ btnClear.addEventListener('click', () => {
     emptyMsg.style.display = '';
     countEl.textContent = '0';
     btnDownload.disabled = true;
-    showToast('🗑 リセットしました');
+    showToast(chrome.i18n.getMessage('toastReset'));
   });
 });
 
@@ -78,7 +86,7 @@ function addThumb(dataUrl, index) {
 
   const item = document.createElement('div');
   item.className = 'thumb-item';
-  item.title = `スライド ${index}`;
+  item.title = chrome.i18n.getMessage('slideTitle', String(index));
 
   const img = document.createElement('img');
   img.src = dataUrl;
@@ -90,7 +98,6 @@ function addThumb(dataUrl, index) {
   item.appendChild(img);
   item.appendChild(num);
 
-  // クリックで拡大プレビュー（Blob URL 経由、60秒後に解放）
   item.addEventListener('click', () => {
     const byteStr = atob(dataUrl.split(',')[1]);
     const arr = new Uint8Array(byteStr.length);

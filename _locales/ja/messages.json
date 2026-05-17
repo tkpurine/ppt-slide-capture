@@ -1,0 +1,62 @@
+{
+  "extDescription": {
+    "message": "ショートカットキーでスライドをキャプチャし、まとめてZIPダウンロード"
+  },
+  "cmdCapture": {
+    "message": "現在のスライドを1枚キャプチャ"
+  },
+  "headerSub": {
+    "message": "SharePoint / PowerPoint Online 対応"
+  },
+  "shortcutLabel": {
+    "message": "⌨️ キャプチャ"
+  },
+  "shortcutOr": {
+    "message": "／ またはボタンで1枚撮影"
+  },
+  "counterLabel": {
+    "message": "枚 キャプチャ済み"
+  },
+  "btnCapture": {
+    "message": "📷 今すぐ撮影"
+  },
+  "thumbHeader": {
+    "message": "📋 キャプチャ一覧"
+  },
+  "emptyMsg": {
+    "message": "まだキャプチャがありません"
+  },
+  "labelPrefix": {
+    "message": "ファイル名:"
+  },
+  "btnDownload": {
+    "message": "💾 ZIPでまとめてダウンロード"
+  },
+  "btnClearTitle": {
+    "message": "リセット"
+  },
+  "toastCaptured": {
+    "message": "✅ スライド $index$ をキャプチャしました",
+    "placeholders": {
+      "index": { "content": "$1" }
+    }
+  },
+  "toastCaptureFailed": {
+    "message": "⚠️ キャプチャに失敗しました"
+  },
+  "toastDownloaded": {
+    "message": "💾 ZIPをダウンロードしました"
+  },
+  "toastReset": {
+    "message": "🗑 リセットしました"
+  },
+  "confirmReset": {
+    "message": "キャプチャをすべてリセットしますか？"
+  },
+  "slideTitle": {
+    "message": "スライド $index$",
+    "placeholders": {
+      "index": { "content": "$1" }
+    }
+  }
+}

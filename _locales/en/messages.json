@@ -1,0 +1,62 @@
+{
+  "extDescription": {
+    "message": "Capture presentation slides with a shortcut key and download as ZIP"
+  },
+  "cmdCapture": {
+    "message": "Capture current slide"
+  },
+  "headerSub": {
+    "message": "SharePoint / PowerPoint Online"
+  },
+  "shortcutLabel": {
+    "message": "⌨️ Capture"
+  },
+  "shortcutOr": {
+    "message": "or use button"
+  },
+  "counterLabel": {
+    "message": "slides captured"
+  },
+  "btnCapture": {
+    "message": "📷 Capture Now"
+  },
+  "thumbHeader": {
+    "message": "📋 Captured Slides"
+  },
+  "emptyMsg": {
+    "message": "No slides captured yet"
+  },
+  "labelPrefix": {
+    "message": "Filename:"
+  },
+  "btnDownload": {
+    "message": "💾 Download ZIP"
+  },
+  "btnClearTitle": {
+    "message": "Reset"
+  },
+  "toastCaptured": {
+    "message": "✅ Slide $index$ captured",
+    "placeholders": {
+      "index": { "content": "$1" }
+    }
+  },
+  "toastCaptureFailed": {
+    "message": "⚠️ Capture failed"
+  },
+  "toastDownloaded": {
+    "message": "💾 ZIP downloaded"
+  },
+  "toastReset": {
+    "message": "🗑 Reset complete"
+  },
+  "confirmReset": {
+    "message": "Reset all captured slides?"
+  },
+  "slideTitle": {
+    "message": "Slide $index$",
+    "placeholders": {
+      "index": { "content": "$1" }
+    }
+  }
+}

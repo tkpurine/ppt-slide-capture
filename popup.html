@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
   <meta charset="UTF-8">
   <style>
@@ -205,13 +205,13 @@
     <div class="header-icon">📸</div>
     <div>
       <div class="header-title">PPT Slide Capture</div>
-      <div class="header-sub">SharePoint / PowerPoint Online 対応</div>
+      <div class="header-sub" data-i18n="headerSub">SharePoint / PowerPoint Online 対応</div>
     </div>
   </div>
 
   <div class="shortcut-bar">
-    ⌨️ キャプチャ: <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>
-    &nbsp;／ またはボタンで1枚撮影
+    <span data-i18n="shortcutLabel">⌨️ キャプチャ</span>: <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>
+    &nbsp;<span data-i18n="shortcutOr">／ またはボタンで1枚撮影</span>
   </div>
 
   <div class="body">
@@ -220,31 +220,31 @@
     <div class="counter-card">
       <div class="counter-left">
         <div class="counter-num" id="count">0</div>
-        <div class="counter-label">枚 キャプチャ済み</div>
+        <div class="counter-label" data-i18n="counterLabel">枚 キャプチャ済み</div>
       </div>
-      <button class="btn-capture" id="btnCapture">📷 今すぐ撮影</button>
+      <button class="btn-capture" id="btnCapture" data-i18n="btnCapture">📷 今すぐ撮影</button>
     </div>
 
     <!-- サムネイル -->
     <div class="thumb-section">
-      <div class="thumb-header">📋 キャプチャ一覧</div>
+      <div class="thumb-header" data-i18n="thumbHeader">📋 キャプチャ一覧</div>
       <div class="thumb-grid" id="thumbGrid">
-        <div class="thumb-empty" id="emptyMsg">まだキャプチャがありません</div>
+        <div class="thumb-empty" id="emptyMsg" data-i18n="emptyMsg">まだキャプチャがありません</div>
       </div>
     </div>
 
     <!-- ファイル名設定 -->
     <div class="settings">
-      <label for="prefix">ファイル名:</label>
+      <label for="prefix" data-i18n="labelPrefix">ファイル名:</label>
       <input type="text" id="prefix" value="slide" placeholder="slide">
     </div>
 
     <!-- アクションボタン -->
     <div class="actions">
-      <button class="btn-download" id="btnDownload" disabled>
+      <button class="btn-download" id="btnDownload" disabled data-i18n="btnDownload">
         💾 ZIPでまとめてダウンロード
       </button>
-      <button class="btn-clear" id="btnClear" title="リセット">🗑</button>
+      <button class="btn-clear" id="btnClear" data-i18n-title="btnClearTitle" title="リセット">🗑</button>
     </div>
 
   </div>
