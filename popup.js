@@ -12,7 +12,7 @@ const toast      = document.getElementById('toast');
 // ── 初期ロード ──────────────────────────────
 chrome.runtime.sendMessage({ type: 'GET_STATE' }, (resp) => {
   if (chrome.runtime.lastError) return;
-  renderAll(resp.slides, resp.meta);
+  renderAll(resp.slides);
 });
 
 // ── background からのリアルタイム通知 ────────
@@ -27,7 +27,7 @@ chrome.runtime.onMessage.addListener((msg) => {
 
 // ── ボタン操作 ───────────────────────────────
 btnCapture.addEventListener('click', () => {
-  chrome.runtime.sendMessage({ type: 'CAPTURE_NOW' }, (resp) => {
+  chrome.runtime.sendMessage({ type: 'CAPTURE_NOW' }, () => {
     if (chrome.runtime.lastError) {
       showToast('⚠️ キャプチャに失敗しました');
     }
@@ -36,7 +36,7 @@ btnCapture.addEventListener('click', () => {
 
 btnDownload.addEventListener('click', () => {
   const prefix = prefixEl.value.trim() || 'slide';
-  chrome.runtime.sendMessage({ type: 'DOWNLOAD_ZIP', prefix }, (resp) => {
+  chrome.runtime.sendMessage({ type: 'DOWNLOAD_ZIP', prefix }, () => {
     if (chrome.runtime.lastError) return;
     showToast('💾 ZIPをダウンロードしました');
   });
@@ -44,7 +44,7 @@ btnDownload.addEventListener('click', () => {
 
 btnClear.addEventListener('click', () => {
   if (!confirm('キャプチャをすべてリセットしますか？')) return;
-  chrome.runtime.sendMessage({ type: 'CLEAR' }, (resp) => {
+  chrome.runtime.sendMessage({ type: 'CLEAR' }, () => {
     if (chrome.runtime.lastError) return;
     thumbGrid.innerHTML = '';
     thumbGrid.appendChild(emptyMsg);
@@ -56,7 +56,7 @@ btnClear.addEventListener('click', () => {
 });
 
 // ── レンダリング ─────────────────────────────
-function renderAll(slides, meta) {
+function renderAll(slides) {
   thumbGrid.innerHTML = '';
   if (!slides || slides.length === 0) {
     thumbGrid.appendChild(emptyMsg);
@@ -97,7 +97,7 @@ function addThumb(dataUrl, index) {
     for (let i = 0; i < byteStr.length; i++) arr[i] = byteStr.charCodeAt(i);
     const blob = new Blob([arr], { type: 'image/png' });
     const blobUrl = URL.createObjectURL(blob);
-    const w = window.open(blobUrl, '_blank', 'width=960,height=540');
+    window.open(blobUrl, '_blank', 'width=960,height=540');
     setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
   });
 

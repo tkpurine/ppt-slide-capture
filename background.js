@@ -65,7 +65,7 @@ async function captureCurrentSlide() {
 }
 
 async function downloadZip(prefix) {
-  const { slides = [], meta = [] } = await chrome.storage.local.get(['slides', 'meta']);
+  const { slides = [] } = await chrome.storage.local.get(['slides']);
   if (slides.length === 0) return;
 
   const zip = new JSZip();

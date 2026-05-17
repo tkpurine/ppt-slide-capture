@@ -1,5 +1,7 @@
 # PPT Slide Capture
 
+[![Tests](https://github.com/tkpurine/ppt-slide-capture/actions/workflows/test.yml/badge.svg)](https://github.com/tkpurine/ppt-slide-capture/actions/workflows/test.yml)
+
 [English](#english) | [Japanese](#japanese)
 
 ---
