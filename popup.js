@@ -107,7 +107,8 @@ function addThumb(dataUrl, index) {
     const byteStr = atob(dataUrl.split(',')[1]);
     const arr = new Uint8Array(byteStr.length);
     for (let i = 0; i < byteStr.length; i++) arr[i] = byteStr.charCodeAt(i);
-    const blob = new Blob([arr], { type: 'image/png' });
+    const mimeType = dataUrl.split(';')[0].split(':')[1];
+    const blob = new Blob([arr], { type: mimeType });
     const blobUrl = URL.createObjectURL(blob);
     window.open(blobUrl, '_blank', 'width=960,height=540');
     setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);

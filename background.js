@@ -41,7 +41,7 @@ function sanitizePrefix(prefix) {
 async function captureCurrentSlide() {
   let dataUrl;
   try {
-    dataUrl = await chrome.tabs.captureVisibleTab(null, { format: 'png' });
+    dataUrl = await chrome.tabs.captureVisibleTab(null, { format: 'jpeg', quality: 80 });
   } catch (e) {
     console.error('captureVisibleTab failed:', e);
     return;
@@ -72,7 +72,7 @@ async function downloadZip(prefix) {
   for (let i = 0; i < slides.length; i++) {
     const base64 = slides[i].split(',')[1];
     const num = String(i + 1).padStart(3, '0');
-    zip.file(`${prefix}_${num}.png`, base64, { base64: true });
+    zip.file(`${prefix}_${num}.jpg`, base64, { base64: true });
   }
 
   const base64 = await zip.generateAsync({ type: 'base64' });
